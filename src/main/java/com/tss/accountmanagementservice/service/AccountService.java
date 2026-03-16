@@ -1,6 +1,6 @@
-package com.tss.hibernate.service;
+package com.tss.accountmanagementservice.service;
 
-import com.tss.hibernate.dto.*;
+import com.tss.accountmanagementservice.dto.*;
 
 public interface AccountService {
 

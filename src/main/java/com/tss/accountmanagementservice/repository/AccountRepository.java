@@ -1,6 +1,6 @@
-package com.tss.hibernate.repository;
+package com.tss.accountmanagementservice.repository;
 
-import com.tss.hibernate.entity.Account;
+import com.tss.accountmanagementservice.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

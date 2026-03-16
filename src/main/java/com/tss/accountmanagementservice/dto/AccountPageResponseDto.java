@@ -1,4 +1,4 @@
-package com.tss.hibernate.dto;
+package com.tss.accountmanagementservice.dto;
 
 import lombok.Builder;
 import lombok.Data;

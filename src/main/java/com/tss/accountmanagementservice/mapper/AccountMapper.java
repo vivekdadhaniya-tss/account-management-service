@@ -1,8 +1,8 @@
-package com.tss.hibernate.mapper;
+package com.tss.accountmanagementservice.mapper;
 
-import com.tss.hibernate.dto.AccountRequestDto;
-import com.tss.hibernate.dto.AccountResponseDto;
-import com.tss.hibernate.entity.Account;
+import com.tss.accountmanagementservice.dto.AccountRequestDto;
+import com.tss.accountmanagementservice.dto.AccountResponseDto;
+import com.tss.accountmanagementservice.entity.Account;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
