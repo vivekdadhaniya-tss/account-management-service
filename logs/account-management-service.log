@@ -1,0 +1,61 @@
+2026-03-16 22:07:12 [restartedMain] INFO  com.tss.accountmanagementservice.AccountManagementServiceApplication - Starting AccountManagementServiceApplication using Java 18.0.2.1 with PID 15980 (C:\Users\vivek.dadhaniya\Documents\swabhav-techlabs-training\spring-boot\account-management-service\target\classes started by Vivek.Dadhaniya in C:\Users\vivek.dadhaniya\Documents\swabhav-techlabs-training\spring-boot\account-management-service)
+2026-03-16 22:07:12 [restartedMain] INFO  com.tss.accountmanagementservice.AccountManagementServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-16 22:07:12 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-16 22:07:12 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-16 22:07:13 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-16 22:07:13 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interface.
+2026-03-16 22:07:14 [restartedMain] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-16 22:07:14 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-16 22:07:14 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-16 22:07:14 [restartedMain] INFO  org.springframework.boot.web.context.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1606 ms
+2026-03-16 22:07:14 [restartedMain] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-16 22:07:14 [restartedMain] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-16 22:07:15 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-16 22:07:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-16 22:07:15 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@116b8c2c
+2026-03-16 22:07:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-16 22:07:15 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-16 22:07:15 [restartedMain] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/hibernate_db]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.3
+	Default catalog/schema: hibernate_db/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-16 22:07:17 [restartedMain] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-16 22:07:17 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-16 22:07:17 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.interest.CurrentAccountInterestCalculator - CurrentAccountInterestCalculator bean initialized - Rate: 0.5% per annum
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.interest.InvestmentAccountInterestCalculator - InvestmentAccountInterestCalculator bean initialized - Rate: 8.0% per annum
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.interest.SavingsAccountInterestCalculator - SavingsAccountInterestCalculator bean initialized - Rate: 3.5% per annum
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.interest.SeniorCitizenAccountInterestCalculator - SeniorCitizenAccountInterestCalculator bean initialized - Rate: 5.0% per annum
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - InterestProcessor initialized with dynamic dependency injection
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Available interest calculators: [current, investment, savings, seniorcitizen]
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.AccountServiceImpl - AccountServiceImpl initialized with dynamic dependency injection
+2026-03-16 22:07:17 [restartedMain] INFO  com.tss.accountmanagementservice.service.AccountServiceImpl - InterestProcessor injected for dynamic interest calculation
+2026-03-16 22:07:18 [restartedMain] INFO  com.tss.accountmanagementservice.controller.AccountController - AccountController initialized with dynamic dependency injection
+2026-03-16 22:07:18 [restartedMain] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-16 22:07:18 [restartedMain] INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-16 22:07:18 [restartedMain] INFO  com.tss.accountmanagementservice.AccountManagementServiceApplication - Started AccountManagementServiceApplication in 6.942 seconds (process running for 10.184)
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Using SavingsAccountInterestCalculator for interest calculation
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.service.interest.SavingsAccountInterestCalculator - Savings account interest calculated - Balance: 10000, Interest: 350.00, Rate: 3.5%
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Interest calculation completed - Type: savings, Calculator: SavingsAccountInterestCalculator, Interest: 350.00
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Interest rate for savings account: 3.5
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Description for savings account: Savings Account - 3.5% per annum
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.service.AccountServiceImpl - Interest calculated successfully - Type: savings, Balance: 10000, Interest: 350.00
+2026-03-16 22:07:30 [http-nio-8080-exec-1] INFO  com.tss.accountmanagementservice.controller.AccountController - Interest calculated for savings account with balance: 10000
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Using SavingsAccountInterestCalculator for interest calculation
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.service.interest.SavingsAccountInterestCalculator - Savings account interest calculated - Balance: 10000, Interest: 350.00, Rate: 3.5%
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Interest calculation completed - Type: savings, Calculator: SavingsAccountInterestCalculator, Interest: 350.00
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Interest rate for savings account: 3.5
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.service.interest.InterestProcessor - Description for savings account: Savings Account - 3.5% per annum
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.service.AccountServiceImpl - Interest calculated successfully - Type: savings, Balance: 10000, Interest: 350.00
+2026-03-16 22:07:53 [http-nio-8080-exec-5] INFO  com.tss.accountmanagementservice.controller.AccountController - Interest calculated for savings account with balance: 10000

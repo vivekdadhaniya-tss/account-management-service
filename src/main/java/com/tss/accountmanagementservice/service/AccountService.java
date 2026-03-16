@@ -17,4 +17,9 @@ public interface AccountService {
     AccountResponseDto debit(String accNumber, AccountTransactionDto transactionDto);
 
     AccountResponseDto credit(String accNumber, AccountTransactionDto transactionDto);
+    
+    // Dynamic Dependency Injection - Interest Calculation Methods
+    InterestCalculationResponseDto calculateInterest(InterestCalculationRequestDto request);
 }
+
+

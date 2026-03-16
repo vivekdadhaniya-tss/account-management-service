@@ -5,6 +5,7 @@ import com.tss.accountmanagementservice.entity.Account;
 import com.tss.accountmanagementservice.mapper.AccountMapper;
 import com.tss.accountmanagementservice.repository.AccountRepository;
 import com.tss.accountmanagementservice.exception.*;
+import com.tss.accountmanagementservice.service.interest.InterestProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -23,11 +25,15 @@ public class AccountServiceImpl implements AccountService {
     private static final Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
     private final AccountRepository accountRepo;
     private final AccountMapper accountMapper;
+    private final InterestProcessor interestProcessor;
 
-    public AccountServiceImpl(AccountRepository accountRepo, AccountMapper accountMapper) {
+    public AccountServiceImpl(AccountRepository accountRepo, AccountMapper accountMapper, 
+                            InterestProcessor interestProcessor) {
         this.accountRepo = accountRepo;
         this.accountMapper = accountMapper;
+        this.interestProcessor = interestProcessor;
         logger.info("AccountServiceImpl initialized with dynamic dependency injection");
+        logger.info("InterestProcessor injected for dynamic interest calculation");
     }
 
     private String generateUniqueAccountNumber() {
@@ -220,4 +226,46 @@ public class AccountServiceImpl implements AccountService {
             throw new TransactionFailedException("Failed to process credit: " + ex.getMessage());
         }
     }
+
+    @Override
+    public InterestCalculationResponseDto calculateInterest(InterestCalculationRequestDto request) {
+        logger.debug("Calculating interest - Account Type: {}, Balance: {}", 
+                   request.getAccountType(), request.getBalance());
+        
+        try {
+            // DYNAMIC DEPENDENCY INJECTION IN ACTION:
+            // The interestProcessor has a Map<String, InterestCalculator> of all implementations
+            // It selects the right calculator based on account type at runtime
+            BigDecimal calculatedInterest = interestProcessor.calculateInterest(
+                request.getAccountType(),
+                request.getBalance()
+            );
+            
+            BigDecimal interestRate = interestProcessor.getInterestRate(request.getAccountType());
+            String description = interestProcessor.getAccountTypeDescription(request.getAccountType());
+            
+            // Build response
+            InterestCalculationResponseDto response = InterestCalculationResponseDto.builder()
+                    .accountType(request.getAccountType())
+                    .balance(request.getBalance())
+                    .interestRate(interestRate)
+                    .calculatedInterest(calculatedInterest)
+                    .description(description)
+                    .calculatedAt(LocalDateTime.now())
+                    .build();
+            
+            logger.info("Interest calculated successfully - Type: {}, Balance: {}, Interest: {}", 
+                       request.getAccountType(), request.getBalance(), calculatedInterest);
+            
+            return response;
+            
+        } catch (IllegalArgumentException ex) {
+            logger.warn("Invalid account type for interest calculation: {}", request.getAccountType());
+            throw ex;
+        } catch (Exception ex) {
+            logger.error("Error calculating interest for account type: {}", request.getAccountType(), ex);
+            throw new DatabaseException("Failed to calculate interest: " + ex.getMessage());
+        }
+    }
 }
+

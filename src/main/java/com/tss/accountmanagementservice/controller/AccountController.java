@@ -85,4 +85,16 @@ public class AccountController {
         logger.info("Successfully credited {} to account: {}", transactionDto.getAmount(), accNumber);
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/accounts/calculate-interest")
+    public ResponseEntity<InterestCalculationResponseDto> calculateInterest(
+            @Valid @RequestBody InterestCalculationRequestDto request) {
+        logger.debug("Interest calculation request - Type: {}, Balance: {}", 
+                   request.getAccountType(), request.getBalance());
+        InterestCalculationResponseDto response = accountService.calculateInterest(request);
+        logger.info("Interest calculated for {} account with balance: {}", 
+                   request.getAccountType(), request.getBalance());
+        return ResponseEntity.ok(response);
+    }
 }
+
